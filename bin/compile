@@ -100,3 +100,10 @@ finished
 
 # Export shard_name to be used by release script
 echo ${shard_name} > /tmp/shard_name
+
+start "Build project executables"
+  cd $BUILD_DIR
+  echo -e "\n"
+  AMBER_ENV=production shards build sam --production
+  chmod +x $BUILD_DIR/bin/sam
+finished
